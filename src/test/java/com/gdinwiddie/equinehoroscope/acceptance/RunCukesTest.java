@@ -1,4 +1,4 @@
-package skeleton;
+package com.gdinwiddie.equinehoroscope.acceptance;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
