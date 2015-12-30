@@ -58,4 +58,12 @@ My first test temporarily duplicates the check performed by the first acceptance
 
 In order to test something more robust than the existence of a horoscope, I'll create a fake HoroscopeProvider for testing. That necessitates modifying CrystalBall to depend on a horoscope provider, and provide a means of supplying one. I decided to use constructor injection, modifying the no-argument constructor to supply one that contains the original temporary functionality.
 
+### A Real Horoscope Provider
+
+Now that I'm using a fake HoroscopeProvider in my unit test of CrystalBall, I want to create a real HoroscopeProvider for production. Since this is dependent on my third-party library, Mumbler, I'll consider it an integration test. It just so happens that this integration test runs quickly, all in the same JVM. It could be, though, that someday this library will be deployed as a separate service. I don't want my code to care, other than the internals of my HoroscopeProvider, MumblerAdapter.
+
+I'll test-drive that adapter. Notice that "uut" is short for "unit under test." That's a convention I've used for decades.
+
+1. Make sure I can retrieve a horoscope via the MumblerAdapter.
+
 

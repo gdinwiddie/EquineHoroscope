@@ -1,6 +1,6 @@
 package com.gdinwiddie.equinehoroscope;
 
-interface HoroscopeProvider {
+public interface HoroscopeProvider {
 
 	String horoscopeFor(String horse, String date);
 
