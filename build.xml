@@ -1,4 +1,4 @@
-<project name="java-helloworld" basedir="." default="runcukes">
+<project name="EquineHoroscope" basedir="." default="runcukes">
     <property name="repo" value="https://repo1.maven.org/maven2"/>
 
     <!-- To figure out compatible combinations of versions, you should examine dependencies in the Maven POM files -->
@@ -44,6 +44,9 @@
     <target name="compile" depends="classpath">
         <mkdir dir="target/classes"/>
         <javac srcdir="src/main/java" destdir="target/classes" classpathref="classpath" includeantruntime="false"/>
+    	<copy todir="target/classes">
+    		<fileset dir="src/main/resources"/>
+    	</copy>
     </target>
 
     <target name="compile-test" depends="compile,classpath">
@@ -62,7 +65,9 @@
             <arg value="--plugin"/>
             <arg value="html:target/cucumber-html-report"/>
             <arg value="--glue"/>
-            <arg value="skeleton"/>
+            <arg value="com.gdinwiddie.equinehoroscope.acceptance"/>
+            <arg value="--tags"/>
+            <arg value="~@ignore"/>
             <arg value="src/test/resources"/>
         </java>
 
