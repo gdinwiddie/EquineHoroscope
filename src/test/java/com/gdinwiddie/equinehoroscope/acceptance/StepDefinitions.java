@@ -13,8 +13,7 @@ import cucumber.api.java.en.When;
 public class StepDefinitions {
 	
 	private CrystalBall crystalBall;
-	private String horse;
-	private String effectiveDate;
+	private String horoscope;
 
 	@Before
 	public void setup() {
@@ -23,14 +22,13 @@ public class StepDefinitions {
 
 	@When("^we request an arbitrary horoscope$")
 	public void we_request_an_arbitrary_horoscope() throws Throwable {
-		this.horse = "Horse's Name";
-		this.effectiveDate = "Next Wednesday";
+		String horse = "Horse's Name";
+		String effectiveDate = "Next Wednesday";
+		horoscope = crystalBall.fetchHoroscope(horse, effectiveDate);
 	}
 
 	@Then("^the horoscope should not be empty$")
 	public void the_horoscope_should_not_be_empty() throws Throwable {
-		String horoscope = crystalBall.fetchHoroscope(horse, effectiveDate);
 		assertThat(horoscope, not(isEmptyOrNullString()));
 	}
-
 }
