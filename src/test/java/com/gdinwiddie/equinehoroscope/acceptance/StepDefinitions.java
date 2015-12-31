@@ -17,7 +17,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class StepDefinitions {
-	
+
 	private CrystalBall crystalBall;
 	private List<String> horoscopes;
 
@@ -38,7 +38,7 @@ public class StepDefinitions {
 	public void the_horoscope_should_not_be_empty() throws Throwable {
 		assertThat(horoscopes.get(0), not(isEmptyOrNullString()));
 	}
-	
+
 	@When("^we request a horoscope for \"([^\"]*)\" for \"([^\"]*)\"$")
 	public void we_request_a_horoscope_for_for(String horse, String effectiveDate) throws Throwable {
 		horoscopes.add(crystalBall.fetchHoroscope(horse, effectiveDate));
@@ -50,4 +50,12 @@ public class StepDefinitions {
 		horoscopeSet.addAll(horoscopes);
 		assertThat(horoscopeSet.size(), equalTo(horoscopes.size()));
 	}
+
+	@Then("^the horoscopes should be the same$")
+	public void the_horoscopes_should_be_the_same() throws Throwable {
+		Set<String> horoscopeSet = new HashSet<String>();
+		horoscopeSet.addAll(horoscopes);
+		assertThat(horoscopeSet.size(), equalTo(1));
+	}
+
 }
