@@ -65,5 +65,6 @@ Now that I'm using a fake HoroscopeProvider in my unit test of CrystalBall, I wa
 I'll test-drive that adapter. Notice that "uut" is short for "unit under test." That's a convention I've used for decades.
 
 1. Make sure I can retrieve a horoscope via the MumblerAdapter.
+2. Make sure that Mumbler delivers a variety of horoscopes. This requires using a more complicated grammar file.
 
 

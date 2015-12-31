@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="lib" path="lib/cucumber-core-1.2.4.jar"/>
 	<classpathentry kind="lib" path="lib/cucumber-html-0.2.3.jar"/>
 	<classpathentry kind="lib" path="lib/cucumber-java-1.2.4.jar"/>
