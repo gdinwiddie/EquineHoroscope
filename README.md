@@ -18,6 +18,8 @@ The **yellow** cards are Features. The **blue** cards are business rules. The **
 
 The code base started with [a fork](https://github.com/gdinwiddie/cucumber-java-skeleton/tree/eclipse-ready) of https://github.com/cucumber/cucumber-java-skeleton modified for working in Eclipse.
 
+Note: the `lib` directory containing the jars is zipped into http://idiacomputing.com/pub/EquineHoroscopeJars.zip
+
 Right now, it has one passing scenario. This scenario calls an instance of CrystalBall and ensures that the returned horoscope is not blank. That's not much of a test, but it is enough to force a rudimentary API into existence.
 
 What can force an actual implementation?
