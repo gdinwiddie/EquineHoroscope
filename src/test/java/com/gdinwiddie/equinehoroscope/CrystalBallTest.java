@@ -3,9 +3,6 @@ package com.gdinwiddie.equinehoroscope;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,26 +38,6 @@ public class CrystalBallTest {
 		horoscopeProvider.addHoroscope("horoscope#2");
 		assertThat(uut.fetchHoroscope("Stewball", "today"), equalTo("horoscope#1"));
 		assertThat(uut.fetchHoroscope("Barney", "today"), equalTo("horoscope#2"));
-	}
-
-	static class FakeHoroscopeProvider implements HoroscopeProvider {
-		List<String> horoscopeList = new ArrayList<String>();
-
-		public void addHoroscope(String horoscope) {
-			horoscopeList.add(horoscope);
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see
-		 * com.gdinwiddie.equinehoroscope.HoroscopeProvider#horoscopeFor(java.
-		 * lang.String, java.lang.String)
-		 */
-		@Override
-		public String horoscopeFor(String horse, String date) {
-			return horoscopeList.remove(0);
-		}
 	}
 
 }
