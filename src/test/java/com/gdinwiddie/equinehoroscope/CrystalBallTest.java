@@ -3,24 +3,63 @@ package com.gdinwiddie.equinehoroscope;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class CrystalBallTest {
 
+	private FakeHoroscopeProvider horoscopeProvider;
+	private CrystalBall uut;
+
+	@Before
+	public void setUp() {
+		horoscopeProvider = new FakeHoroscopeProvider();
+		uut = new CrystalBall(horoscopeProvider);
+	}
+
 	@Test
 	public void assureWeGetHoroscopeFromProvider() {
-		CrystalBall uut = new CrystalBall(new FakeHoroscopeProvider());
+		horoscopeProvider.addHoroscope("This is a fake horoscope.");
 		String horoscope = uut.fetchHoroscope("Stewball", "today");
 		assertThat(horoscope, equalTo("This is a fake horoscope."));
 	}
-	
+
+	@Test
+	public void assureWeCallProviderTwiceForTwoDates() {
+		horoscopeProvider.addHoroscope("horoscope#1");
+		horoscopeProvider.addHoroscope("horoscope#2");
+		assertThat(uut.fetchHoroscope("Stewball", "today"), equalTo("horoscope#1"));
+		assertThat(uut.fetchHoroscope("Stewball", "tomorrow"), equalTo("horoscope#2"));
+	}
+
+	@Test
+	public void assureWeCallProviderTwiceForTwoHorses() {
+		horoscopeProvider.addHoroscope("horoscope#1");
+		horoscopeProvider.addHoroscope("horoscope#2");
+		assertThat(uut.fetchHoroscope("Stewball", "today"), equalTo("horoscope#1"));
+		assertThat(uut.fetchHoroscope("Barney", "today"), equalTo("horoscope#2"));
+	}
+
 	static class FakeHoroscopeProvider implements HoroscopeProvider {
-		/* (non-Javadoc)
-		 * @see com.gdinwiddie.equinehoroscope.HoroscopeProvider#horoscopeFor(java.lang.String, java.lang.String)
+		List<String> horoscopeList = new ArrayList<String>();
+
+		public void addHoroscope(String horoscope) {
+			horoscopeList.add(horoscope);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * com.gdinwiddie.equinehoroscope.HoroscopeProvider#horoscopeFor(java.
+		 * lang.String, java.lang.String)
 		 */
 		@Override
 		public String horoscopeFor(String horse, String date) {
-			return "This is a fake horoscope.";
+			return horoscopeList.remove(0);
 		}
 	}
 

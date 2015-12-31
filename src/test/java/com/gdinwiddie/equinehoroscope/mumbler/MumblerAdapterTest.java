@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class MumblerAdapterTest {
@@ -29,6 +30,7 @@ public class MumblerAdapterTest {
 		return uut.horoscopeFor("any horse", "any date");
 	}
 
+	@Ignore("Could have spurious failures")
 	@Test
 	public void assureGeneratorHasVariety() {
 		Set<String> horoscopeset = new HashSet<String>();

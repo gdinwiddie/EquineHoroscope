@@ -69,6 +69,12 @@ I'll test-drive that adapter. Notice that "uut" is short for "unit under test." 
 1. Make sure I can retrieve a horoscope via the MumblerAdapter.
 2. Make sure that Mumbler delivers a variety of horoscopes. This requires using a more complicated grammar file.
 
-### Popping back up to the Business Level
+### Popping back up to the Business Level, or not
 
 Implementing the next scenario, which expects different horoscopes, caused us to notice that the MumblerAdapter wasn't hooked to the CrystalBall. Instead, it had a dummy HoroscopeProvider that returned the same horoscope all the time.
+
+Note, however, that if we run this test multiple times, it sometimes fail. Sometimes our generator creates the same horoscope twice in a row. This gives us "flaky" or "blinking" tests that sometimes pass and sometimes fail without any significant changes. These tests can make us not trust our test suite, so we'd better do something about it. 
+
+We have a similar problem in MumblerAdapterTest, but there it would have to be the same 5 times in a row. We can quit running MumblerAdapterTest (I've marked it @Ignored for now) because it's testing behavior of Mumbler, itself, not the adapter. It could be worth dusting off that test if we receive a new version of Mumbler and want to verify it still works. 
+
+The "different horse, same day" scenario is more problematic. We do want to check this behavior with the full system stack, but the behavior in our scenario is not guaranteed. In fact, it's not even really a business requirement. While we don't want our horoscopes to be monotonously repetitious, it's OK if a horoscope is repeated. We DO have a business requirement for horoscopes for the same horse on the same day to be consistent, else we blow our illusion of authenticity. Perhaps we'd do better testing the "different horse, same day" scenario in CrystalBallTest, substituting a controllable HoroscopeProvider.
