@@ -1,5 +1,7 @@
 package com.gdinwiddie.equinehoroscope;
 
+import com.gdinwiddie.equinehoroscope.mumbler.MumblerAdapter;
+
 public class CrystalBall {
 
 	private HoroscopeProvider horoscopeProvider;
@@ -9,13 +11,7 @@ public class CrystalBall {
 	}
 
 	CrystalBall() {
-		this(new HoroscopeProvider() {
-			
-			@Override
-			public String horoscopeFor(String horse, String date) {
-				return "Situation cloudy, try again later";
-			}
-		});
+		this(MumblerAdapter.instance());
 	}
 
 	public static CrystalBall instance() {

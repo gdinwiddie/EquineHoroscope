@@ -38,13 +38,13 @@ This also gives us two possibilities. We could...
 
 See Martin Fowler's article, [Mocks Aren't Stubs](http://martinfowler.com/articles/mocksArentStubs.html) for a quick overview on the topic.
 
-### Digging Deeper
+#### Digging Deeper
 
 While working on the next scenario will induce some sort of difference in the returned horoscope, implementing that difference will either be a detour into more detailed faking it ("If this then return that constant nonsense, else return another constant nonsense."), or will be a large step into implementing a real backend for the functionality.
 
 It's easy to fall into a trap of trying to drive all the code from acceptance tests. I recommend against that strategy. I've gotten better results switching to unit tests when fleshing out the implementation. This way I avoid the combinatorial explosion of trying to prove all possibilities from the end-user point of view. It makes refactoring easier, too. As I refactor my code using Eclipse' refactoring tools, it keeps my unit tests up-to-date.
 
-### Quick Design Discussion
+#### Quick Design Discussion
 
 What do I currently know about my system design?
 
@@ -54,13 +54,13 @@ What do I currently know about my system design?
 
 As it happens, I've got such a library, Mumbles, written by Shannon Code years back when we were going to collaborate on this project. We'll use it here just as a black-box third-party library, mumbler.jar. Since this library is beyond the scope of the source code being developed, I'll naturally use the Adapter Pattern to talk with it. This allows me to isolate any idiosyncracies, and provide an API that is convenient for my code to consume. This is a rudimentary implementation of [Hexagonal Architecture](http://c2.com/cgi/wiki?HexagonalArchitecture) or the [Ports and Adapters Pattern](http://c2.com/cgi/wiki?PortsAndAdaptersArchitecture). One of the many advantages of this pattern is that the adapters are a natural [seam](http://www.informit.com/articles/article.aspx?p=359417&seqNum=2) for substituting a [test double](http://www.martinfowler.com/bliki/TestDouble.html) for testing in isolation.
 
-### First Unit Test
+#### First Unit Test
 
 My first test temporarily duplicates the check performed by the first acceptance test. Both of these are simple triggers to drive development, and will disappear or morph into something more meaningful in the future.
 
 In order to test something more robust than the existence of a horoscope, I'll create a fake HoroscopeProvider for testing. That necessitates modifying CrystalBall to depend on a horoscope provider, and provide a means of supplying one. I decided to use constructor injection, modifying the no-argument constructor to supply one that contains the original temporary functionality.
 
-### A Real Horoscope Provider
+#### A Real Horoscope Provider
 
 Now that I'm using a fake HoroscopeProvider in my unit test of CrystalBall, I want to create a real HoroscopeProvider for production. Since this is dependent on my third-party library, Mumbler, I'll consider it an integration test. It just so happens that this integration test runs quickly, all in the same JVM. It could be, though, that someday this library will be deployed as a separate service. I don't want my code to care, other than the internals of my HoroscopeProvider, MumblerAdapter.
 
@@ -69,4 +69,6 @@ I'll test-drive that adapter. Notice that "uut" is short for "unit under test." 
 1. Make sure I can retrieve a horoscope via the MumblerAdapter.
 2. Make sure that Mumbler delivers a variety of horoscopes. This requires using a more complicated grammar file.
 
+### Popping back up to the Business Level
 
+Implementing the next scenario, which expects different horoscopes, caused us to notice that the MumblerAdapter wasn't hooked to the CrystalBall. Instead, it had a dummy HoroscopeProvider that returned the same horoscope all the time.
