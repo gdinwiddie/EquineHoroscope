@@ -86,4 +86,8 @@ We've built an InMemoryHoroscopeCache using Test Driven Development. We can demo
 In the long run, we want to cache in a database so it persists across reboots. I *could* write a test that forces this. I've done it before, though, and find it a bit artificial. I don't necessarily need to turn all my architectural into business-facing tests. For me, it's good enough that my tests show the ultimate behavior is unchanged with a different mechanism.
 
 The database cache has been test-driven using the Apache Derby (https://db.apache.org/derby/) database engine.
+
+Now we substitute this cache for the in-memory one, and relegate the in-memory cache just for testing
+
+
  

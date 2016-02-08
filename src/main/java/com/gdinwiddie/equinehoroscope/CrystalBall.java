@@ -1,6 +1,6 @@
 package com.gdinwiddie.equinehoroscope;
 
-import com.gdinwiddie.equinehoroscope.cache.InMemoryHoroscopeCache;
+import com.gdinwiddie.equinehoroscope.cache.derby.DerbyHoroscopeCache;
 import com.gdinwiddie.equinehoroscope.mumbler.MumblerAdapter;
 
 public class CrystalBall {
@@ -12,7 +12,7 @@ public class CrystalBall {
 	}
 
 	CrystalBall() {
-		this(new CachingHoroscopeProvider(MumblerAdapter.instance(), new InMemoryHoroscopeCache()));
+		this(new CachingHoroscopeProvider(MumblerAdapter.instance(), DerbyHoroscopeCache.instance()));
 	}
 
 	public static CrystalBall instance() {
