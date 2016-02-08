@@ -1,4 +1,4 @@
-package com.gdinwiddie.equinehoroscope;
+package com.gdinwiddie.equinehoroscope.cache;
 
 import java.util.HashMap;
 import java.util.Map;

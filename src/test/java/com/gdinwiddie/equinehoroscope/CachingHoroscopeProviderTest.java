@@ -7,6 +7,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.gdinwiddie.equinehoroscope.cache.HoroscopeCache;
+import com.gdinwiddie.equinehoroscope.cache.InMemoryHoroscopeCache;
+
 public class CachingHoroscopeProviderTest {
     private FakeHoroscopeProvider provider;
     private HoroscopeCache cache;

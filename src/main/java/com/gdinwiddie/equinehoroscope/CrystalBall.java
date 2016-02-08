@@ -1,5 +1,6 @@
 package com.gdinwiddie.equinehoroscope;
 
+import com.gdinwiddie.equinehoroscope.cache.InMemoryHoroscopeCache;
 import com.gdinwiddie.equinehoroscope.mumbler.MumblerAdapter;
 
 public class CrystalBall {

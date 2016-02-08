@@ -1,5 +1,7 @@
 package com.gdinwiddie.equinehoroscope;
 
+import com.gdinwiddie.equinehoroscope.cache.HoroscopeCache;
+
 public class CachingHoroscopeProvider implements HoroscopeProvider {
     private HoroscopeProvider horoscopeProvider;
     private HoroscopeCache horoscopeCache;

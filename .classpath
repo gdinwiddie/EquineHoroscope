@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="lib/mumbler.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/idiaJdbc.jar"/>
+	<classpathentry kind="lib" path="lib/derby.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

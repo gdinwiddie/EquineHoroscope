@@ -1,4 +1,4 @@
-package com.gdinwiddie.equinehoroscope;
+package com.gdinwiddie.equinehoroscope.cache;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -8,7 +8,7 @@ import org.junit.Test;
 public abstract class HoroscopeCacheTestTemplate {
 	private HoroscopeCache cache;
 
-	void setCache(HoroscopeCache cache) {
+	protected void setCache(HoroscopeCache cache) {
 		this.cache = cache;
 	}
 
