@@ -11,7 +11,7 @@ public class CrystalBall {
 	}
 
 	CrystalBall() {
-		this(MumblerAdapter.instance());
+		this(new CachingHoroscopeProvider(MumblerAdapter.instance(), new InMemoryHoroscopeCache()));
 	}
 
 	public static CrystalBall instance() {

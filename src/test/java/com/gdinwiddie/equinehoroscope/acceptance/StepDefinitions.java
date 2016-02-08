@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import com.gdinwiddie.equinehoroscope.CrystalBall;
 
@@ -55,6 +56,12 @@ public class StepDefinitions {
 	public void the_horoscopes_should_be_the_same() throws Throwable {
 		Set<String> horoscopeSet = new HashSet<String>();
 		horoscopeSet.addAll(horoscopes);
+		horoscopeSet.forEach(new Consumer<String>() {
+
+			@Override
+			public void accept(String thisHoroscope) {
+				System.out.println(thisHoroscope);
+			}});
 		assertThat(horoscopeSet.size(), equalTo(1));
 	}
 

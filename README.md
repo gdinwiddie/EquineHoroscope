@@ -80,3 +80,8 @@ We have a similar problem in MumblerAdapterTest, but there it would have to be t
 The "different horse, same day" scenario is more problematic. We do want to check this behavior with the full system stack, but the behavior in our scenario is not guaranteed. In fact, it's not even really a business requirement. While we don't want our horoscopes to be monotonously repetitious, it's OK if a horoscope is repeated. We DO have a business requirement for horoscopes for the same horse on the same day to be consistent, else we blow our illusion of authenticity. Perhaps we'd do better testing the "different horse, same day" scenario in CrystalBallTest, substituting a controllable HoroscopeProvider.
 
 To make the "same horse, same day" scenario return consistent results, we need to cache the results we got and reuse them. Ultimately we need to cache them in a database, so they'll persist across reboots. We'll start with something simpler, though.
+
+We've built an InMemoryHoroscopeCache using Test Driven Development. We can demonstrate that our "same horse, same day" scenario works using this cache. It leaves us in a bit of a pickle, though. This cache code is in the src/test/java tree, not src/main/java.
+
+In the long run, we want to cache in a database so it persists across reboots. I *could* write a test that forces this. I've done it before, though, and find it a bit artificial. I don't necessarily need to turn all my architectural into business-facing tests. For me, it's good enough that my tests show the ultimate behavior is unchanged with a different mechanism.
+ 

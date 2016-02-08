@@ -10,7 +10,6 @@ Feature: Customer can get a horoscope
     When we request an arbitrary horoscope
     Then the horoscope should not be empty
 
-  @ignore
   Scenario: Same horse, same day
     This should return the same horoscope as before
 
