@@ -1,8 +1,12 @@
 package com.gdinwiddie.creditcardprocessor;
 
+import com.gdinwiddie.creditcardprocessor.merchantbank.FakeMerchantBank;
+
 public class PaymentProcessor {
 
+	private static final int HOROSCOPE_PRICE_IN_DOLLARS = 2;
 	private static PaymentProcessor theProcessor;
+	private MerchantBank merchantBankAdapter = new FakeMerchantBank();
 
 	public static PaymentProcessor instance() {
 		if (null == theProcessor) {
@@ -15,7 +19,7 @@ public class PaymentProcessor {
 		if (!creditCard.validate()) {
 			return new PaymentResult(false, "Invalid card information");
 		}
-		PaymentResult paymentResult = new PaymentResult(false, "Declined for lack of merchant account");
+		PaymentResult paymentResult = merchantBankAdapter.processPayment(HOROSCOPE_PRICE_IN_DOLLARS, creditCard);
 		return paymentResult ;
 	}
 

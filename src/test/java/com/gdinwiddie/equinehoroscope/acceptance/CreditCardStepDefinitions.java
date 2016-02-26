@@ -2,6 +2,7 @@ package com.gdinwiddie.equinehoroscope.acceptance;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.isEmptyString;
 import static org.junit.Assert.assertThat;
 
 import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
@@ -26,6 +27,12 @@ public class CreditCardStepDefinitions {
 		result = PaymentProcessor.instance().acceptPayment(invalidCardNumber);
 	}
 
+	@When("^a good card is presented to the Payment Processor$")
+	public void a_good_card_is_presented_to_the_Payment_Processor() throws Throwable {
+		CreditCardInfo goodCard = new CreditCardInfo("4111111111111111", "123", "09/99");
+		result = PaymentProcessor.instance().acceptPayment(goodCard);
+	}
+
 	@Then("^the Payment Processor declines the transaction$")
 	public void the_Payment_Processor_declines_the_transaction() throws Throwable {
 		assertThat(result.isSuccessful(), is(false));
@@ -36,5 +43,10 @@ public class CreditCardStepDefinitions {
 	public void the_Payment_Processor_rejects_the_transaction() throws Throwable {
 		assertThat(result.isSuccessful(), is(false));
 		assertThat(result.getReason().toLowerCase(), containsString("invalid"));
+	}
+	@Then("^the Payment Processor accepts the transaction$")
+	public void the_Payment_Processor_accepts_the_transaction() throws Throwable {
+		assertThat(result.isSuccessful(), is(true));
+		assertThat(result.getReason(), isEmptyString());
 	}
 }

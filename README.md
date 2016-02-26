@@ -96,5 +96,7 @@ First we need to be able to process credit cards. Then we'll return the horoscop
 We're using test credit card numbers from https://docs.balancedpayments.com/1.1/overview/resources/
 The credit card validation code is borrowed from Apache Commons 1.5.0 (http://svn.apache.org/viewvc/commons/proper/validator/tags/VALIDATOR_1_5_0/src/main/java/org/apache/commons/validator/routines/)
 
+Successfully completing a credit card transaction is a bit harder than the failure scenarios. We now need an actual credit card processor.  Or, we will. One step at a time... Let's use the Adapter Pattern to isolate our system from an external processor. Then we can use a Fake Adapter to simulate the behavior of collaborating with that external system. Temporarily we'll hardwire the Fake Adapter. Then we'll put it under the control of the tests. In the future, we'll want to test our real adapter with the external system, and have a test or two checking the integration of our system and that one.
+
 
  

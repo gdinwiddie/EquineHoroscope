@@ -20,3 +20,5 @@ Scenario: Invalid card number
 	Then the Payment Processor rejects the transaction
 
 Scenario: Successful transaction
+	When a good card is presented to the Payment Processor
+	Then the Payment Processor accepts the transaction

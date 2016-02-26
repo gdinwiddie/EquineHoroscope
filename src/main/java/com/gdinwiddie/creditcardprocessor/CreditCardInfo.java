@@ -18,4 +18,16 @@ public class CreditCardInfo {
 		return new CreditCardValidator().isValid(cardNumber);
 	}
 
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public String getCvv2() {
+		return cvv2;
+	}
+
+	public String getExpirationDate() {
+		return expirationDate;
+	}
+
 }
