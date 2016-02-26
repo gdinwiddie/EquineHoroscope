@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Consumer;
 
 import com.gdinwiddie.equinehoroscope.CrystalBall;
 
@@ -17,7 +16,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class StepDefinitions {
+public class CrystalBallStepDefinitions {
 
 	private CrystalBall crystalBall;
 	private List<String> horoscopes;
