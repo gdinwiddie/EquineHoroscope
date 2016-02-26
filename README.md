@@ -89,5 +89,9 @@ The database cache has been test-driven using the Apache Derby (https://db.apach
 
 Now we substitute this cache for the in-memory one, and relegate the in-memory cache just for testing
 
+## Story 2: Horoscopes Cost Money
+
+First we need to be able to process credit cards. Then we'll return the horoscope to the customer IFF the transaction is successful.
+
 
  
