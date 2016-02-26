@@ -16,5 +16,7 @@ Scenario: Declined by card issuer
 	Then the Payment Processor declines the transaction
 
 Scenario: Invalid card number
+	When an invalid card number is presented to the Payment Processor
+	Then the Payment Processor rejects the transaction
 
 Scenario: Successful transaction

@@ -12,6 +12,9 @@ public class PaymentProcessor {
 	}
 
 	public PaymentResult acceptPayment(CreditCardInfo creditCard) {
+		if (!creditCard.validate()) {
+			return new PaymentResult(false, "Invalid card information");
+		}
 		PaymentResult paymentResult = new PaymentResult(false, "Declined for lack of merchant account");
 		return paymentResult ;
 	}

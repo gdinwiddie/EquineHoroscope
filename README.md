@@ -93,5 +93,8 @@ Now we substitute this cache for the in-memory one, and relegate the in-memory c
 
 First we need to be able to process credit cards. Then we'll return the horoscope to the customer IFF the transaction is successful.
 
+We're using test credit card numbers from https://docs.balancedpayments.com/1.1/overview/resources/
+The credit card validation code is borrowed from Apache Commons 1.5.0 (http://svn.apache.org/viewvc/commons/proper/validator/tags/VALIDATOR_1_5_0/src/main/java/org/apache/commons/validator/routines/)
+
 
  
