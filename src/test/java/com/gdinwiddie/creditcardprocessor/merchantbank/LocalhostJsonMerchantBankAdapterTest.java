@@ -9,6 +9,8 @@ import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.gdinwiddie.junit.SlowTests;
 
 import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
 import com.gdinwiddie.creditcardprocessor.PaymentResult;
@@ -28,6 +30,7 @@ public class LocalhostJsonMerchantBankAdapterTest {
 		bankAdapter.setBankURL("http://localhost:12345");
 	}
 
+	@Category(SlowTests.class)
 	@Test
 	public void testInvalidCard() throws Exception {
 		running(server, new Runnable() {
@@ -39,6 +42,7 @@ public class LocalhostJsonMerchantBankAdapterTest {
 		});
 	}
 
+	@Category(SlowTests.class)
 	@Test
 	public void testValidCard() throws Exception {
 		running(server, new Runnable() {
