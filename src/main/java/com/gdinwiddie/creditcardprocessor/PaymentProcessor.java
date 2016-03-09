@@ -1,6 +1,6 @@
 package com.gdinwiddie.creditcardprocessor;
 
-import com.gdinwiddie.creditcardprocessor.merchantbank.LocalhostMerchantBankAdapter;
+import com.gdinwiddie.creditcardprocessor.merchantbank.JsonMerchantBankAdapter;
 
 public class PaymentProcessor {
 
@@ -14,7 +14,7 @@ public class PaymentProcessor {
 
 	public static PaymentProcessor instance() {
 		if (null == theProcessor) {
-			theProcessor = new PaymentProcessor(new LocalhostMerchantBankAdapter());
+			theProcessor = new PaymentProcessor(new JsonMerchantBankAdapter());
 		}
 		return theProcessor;
 	}

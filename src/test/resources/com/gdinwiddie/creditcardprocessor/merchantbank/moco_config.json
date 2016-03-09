@@ -1,0 +1,59 @@
+[
+	{
+		"request": 
+		{
+			"method": "post",
+			"uri": "/pay",
+			"json_paths": 
+			{
+				"$..cardNumber": "4111111111111111"
+			}
+		},
+
+		"response": 
+		{
+			"text": "success"
+		}
+	},
+
+	{
+		"request": 
+		{
+			"method": "post",
+			"uri": "/pay",
+			"json_paths": 
+			{
+				"$..cardNumber": "4444444444444448"
+			}
+		},
+
+		"response": 
+		{
+			"text": "processor failure"
+		}
+	},
+
+	{
+		"request": 
+		{
+			"method": "post",
+			"uri": "/pay",
+			"json_paths": 
+			{
+				"$..cardNumber": "4222222222222220"
+			}
+		},
+
+		"response": 
+		{
+			"text": "invalid card"
+		}
+	},
+
+	{
+		"response": 
+		{
+			"text": "Unrecognized action requested"
+		}
+	}
+]
