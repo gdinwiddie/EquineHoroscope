@@ -98,5 +98,8 @@ The credit card validation code is borrowed from Apache Commons 1.5.0 (http://sv
 
 Successfully completing a credit card transaction is a bit harder than the failure scenarios. We now need an actual credit card processor.  Or, we will. One step at a time... Let's use the Adapter Pattern to isolate our system from an external processor. Then we can use a Fake Adapter to simulate the behavior of collaborating with that external system. Temporarily we'll hardwire the Fake Adapter. Then we'll put it under the control of the tests. In the future, we'll want to test our real adapter with the external system, and have a test or two checking the integration of our system and that one.
 
+Lacking a real credit card processor, or even a real credit card test system, we've created our own using Moco (or, rather, a fork of that project with a fix for a small bug we ran into). You can start this test server for interactive use with `java -jar lib/moco-runner-0.11.0-SNAPSHOT-uber.jar http -p 12000 -c src/test/resources/com/gdinwiddie/creditcardprocessor/merchantbank/moco_config.json`
 
- 
+The tests start the same server on a different port, as needed, for the duration of each test.
+
+This test server allows us to test our real adapter `/EquineHoroscope/src/main/java/com/gdinwiddie/creditcardprocessor/merchantbank/JsonMerchantBankAdapter.java`.
