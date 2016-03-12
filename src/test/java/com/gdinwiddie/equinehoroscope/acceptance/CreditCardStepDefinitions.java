@@ -18,6 +18,9 @@ import cucumber.api.java.en.When;
 public class CreditCardStepDefinitions {
 	private PaymentResult result;
 	private PaymentProcessor paymentProcessor;
+	public static final CreditCardInfo badCard = new CreditCardInfo("4444444444444448", "123", "09/99");
+	public static final CreditCardInfo invalidCard = new CreditCardInfo("4444444444444408", "123", "09/99");
+	public static final CreditCardInfo goodCard = new CreditCardInfo("4111111111111111", "123", "09/99");
 
 	@Before
 	public void setUp() {
@@ -26,19 +29,16 @@ public class CreditCardStepDefinitions {
 
 	@When("^a bad card is presented to the Payment Processor$")
 	public void a_bad_card_is_presented_to_the_Payment_Processor() throws Throwable {
-		CreditCardInfo badCard = new CreditCardInfo("4444444444444448", "123", "09/99");
 		result = paymentProcessor.acceptPayment(badCard);
 	}
 
 	@When("^an invalid card number is presented to the Payment Processor$")
 	public void an_invalid_card_number_is_presented_to_the_Payment_Processor() throws Throwable {
-		CreditCardInfo invalidCardNumber = new CreditCardInfo("4444444444444408", "123", "09/99");
-		result = paymentProcessor.acceptPayment(invalidCardNumber);
+		result = paymentProcessor.acceptPayment(invalidCard);
 	}
 
 	@When("^a good card is presented to the Payment Processor$")
 	public void a_good_card_is_presented_to_the_Payment_Processor() throws Throwable {
-		CreditCardInfo goodCard = new CreditCardInfo("4111111111111111", "123", "09/99");
 		result = paymentProcessor.acceptPayment(goodCard);
 	}
 

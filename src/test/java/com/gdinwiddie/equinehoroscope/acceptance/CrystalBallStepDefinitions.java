@@ -5,9 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.hamcrest.Matchers.not;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.gdinwiddie.equinehoroscope.CrystalBall;
@@ -19,12 +17,12 @@ import cucumber.api.java.en.When;
 public class CrystalBallStepDefinitions {
 
 	private CrystalBall crystalBall;
-	private List<String> horoscopes;
+	private HoroscopeCollector horoscopes;
 
 	@Before
 	public void setup() {
 		this.crystalBall = CrystalBall.instance();
-		this.horoscopes = new ArrayList<String>();
+		this.horoscopes = HoroscopeCollector.instance();
 	}
 
 	@When("^we request an arbitrary horoscope$")

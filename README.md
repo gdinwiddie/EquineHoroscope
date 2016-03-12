@@ -103,3 +103,11 @@ Lacking a real credit card processor, or even a real credit card test system, we
 The tests start the same server on a different port, as needed, for the duration of each test.
 
 This test server allows us to test our real adapter `/EquineHoroscope/src/main/java/com/gdinwiddie/creditcardprocessor/merchantbank/JsonMerchantBankAdapter.java`.
+
+### Putting the pieces together
+
+Now that we can generate horoscopes, and charge credit cards, it's time to tie the two together. When a customer requests a horoscope, we'll first charge their card and then deliver the horoscope.
+
+We've started at the API level, beneath the GUI. As suggested by our first `buy_a_horoscope` scenario, we take in both the credit card information and which horoscope (horse and date) that we want. If the credit card charge goes through, we return a horoscope.
+
+Note that we're sharing a few things from our lower-level step definitions when we put it together for retail sales. We've made the named credit cards visible from `CreditCardStepDefinitions` and we've extracted out the storage of returned horoscopes from `CrystalBallStepDefinitions`. Duplication will hurt us in test code the same way it does in production code.
