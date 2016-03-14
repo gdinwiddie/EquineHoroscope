@@ -10,12 +10,12 @@ import cucumber.api.java.en.When;
 
 public class RetailStepDefinitions {
 	private CreditCardInfo customerCard;
-	private EquineHoroscopeRetailApi retailApi;
+	private EquineHoroscopeRetailAdapter retailApi;
 	private HoroscopeCollector horoscopes;
 	
 	@Before
 	public void setUp() {
-		this.retailApi = new EquineHoroscopeRetailApi();
+		this.retailApi = new EquineHoroscopeRetailApiAdapter();
 		this.horoscopes = HoroscopeCollector.instance();
 	}
 
