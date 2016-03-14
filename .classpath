@@ -22,5 +22,7 @@
 	<classpathentry kind="lib" path="lib/httpclient-4.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.4.4.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/cucumber-picocontainer-1.2.4.jar"/>
+	<classpathentry kind="lib" path="lib/picocontainer-2.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

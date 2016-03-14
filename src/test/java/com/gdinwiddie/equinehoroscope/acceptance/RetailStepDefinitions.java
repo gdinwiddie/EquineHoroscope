@@ -1,7 +1,6 @@
 package com.gdinwiddie.equinehoroscope.acceptance;
 
 import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
-import com.gdinwiddie.retail.EquineHoroscopeRetailApi;
 import com.gdinwiddie.retail.HorseSelection;
 
 import cucumber.api.java.Before;
@@ -13,9 +12,13 @@ public class RetailStepDefinitions {
 	private EquineHoroscopeRetailAdapter retailApi;
 	private HoroscopeCollector horoscopes;
 	
+	public RetailStepDefinitions(EquineHoroscopeRetailAdapter retailApi) {
+		super();
+		this.retailApi = retailApi;
+	}
+
 	@Before
 	public void setUp() {
-		this.retailApi = new EquineHoroscopeRetailApiAdapter();
 		this.horoscopes = HoroscopeCollector.instance();
 	}
 
