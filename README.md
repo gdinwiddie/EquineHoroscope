@@ -120,3 +120,17 @@ It's a pretty simple API at this point. We could imagine many directions to enha
 
 We'll want to be able to verify the functionality through the GUI that we can via the API. That means we want to reuse the `buy_a_horoscope.feature` file and associated `RetailStepDefinitions.java`. Instead of the step definitions talking to the API, though, we want them to talk to the GUI. We'll extract the API interface and create a API and GUI adapters that can do the same actions. Then we can inject one or the other to test via the GUI or via the API.
 
+Now that we've extracted the API level adapter, `EquineHoroscopeRetailApiAdapter`, we can create a similar adapter, `EquineHoroscopeRetailWebAdapter`, to purchase a horoscope at the GUI level. For that, we'll use Selenium to drive a web browser. Note that we can do that even though the web GUI has not yet been created.
+
+We can run the web features by defining `EquineHoroscope.testDepth=web` and, to limit the run just to web-related scenarios, specifying the tag `@Web`. Do this by invoking Maven with
+
+    mvn -Dtest=RunCukesTest -Dtags=@Web -DEquineHoroscope.testDepth=web test
+
+or as an Java Application within Eclipse
+
+![Eclipse Run Configuration part 1](docs/RunWebFeatures-config1.png "Eclipse Run Configuration part 1")
+
+![Eclipse Run Configuration part 2](docs/RunWebFeatures-config2.png "Eclipse Run Configuration part 2")
+
+*Note that neither of these currently pass, since we don't have a web application running.*
+
