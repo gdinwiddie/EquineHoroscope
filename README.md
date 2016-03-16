@@ -132,5 +132,10 @@ or as an Java Application within Eclipse
 
 ![Eclipse Run Configuration part 2](docs/RunWebFeatures-config2.png "Eclipse Run Configuration part 2")
 
-*Note that neither of these currently pass, since we don't have a web application running.*
+#### Adding the web GUI
+
+Using Spark (http://sparkjava.com/) for the application server, and Handlebars.java (https://github.com/jknack/handlebars.java) for the templating engine, we can build a web GUI for Selenium to access.
+
+*Note that the GUI exists, but is not yet connected to our API. The test passes, but it's not exhibiting the behavior we want. Is that OK? What should we do?*
+
 
