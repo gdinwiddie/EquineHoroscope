@@ -138,4 +138,11 @@ Using Spark (http://sparkjava.com/) for the application server, and Handlebars.j
 
 *Note that the GUI exists, but is not yet connected to our API. The test passes, but it's not exhibiting the behavior we want. Is that OK? What should we do?*
 
+*I've decided it's OK. I'm not likely to ship the system without looking at it, and it's rather obvious that it's not working properly. This is not something I expect to break without noticing.*
+
+I've hooked the GUI to the API by gathering the query parameters, passing them properly to the API, and putting the result back in scope for displaying on the GUI.
+
+Notice that we now have two servers to start, our simulated merchant bank implemented with Moco, and out Equine Horoscope web application, `EquineHoroscopeRetailWeb.main()`. These must be started before running our web-tier Cucumber scenarios. It would be more convenient to start these automatically, but this lets us see things are working. We can also visit `http://localhost:20002/buy` manually to see how things work.
+
+
 

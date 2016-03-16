@@ -3,9 +3,9 @@
 <h1>Equine Horoscopes!</h1>
 <p>Use the same luck that the stars use. Find out how your horse will fare on race day</p>
 <form action="buy" method="post">
-<p>Credit card number: <input name="credit_card_number" value={{this.credit_card_number}} type="text" size="12" /></p>
-<p>CVV2 code: <input name="credit_card_CVV2" value={{this.credit_card_CVV2}} type="text" size="4" /></p>
-<p>Expiration date: <input name="credit_card_expiration" value={{this.credit_card_expiration}} type="text" size="6" /></p>
+<p>Credit card number: <input name="credit_card_number" value="{{this.credit_card_number}}" type="text" size="12" /></p>
+<p>CVV2 code: <input name="credit_card_CVV2" value="{{this.credit_card_CVV2}}" type="text" size="4" /></p>
+<p>Expiration date: <input name="credit_card_expiration" value="{{this.credit_card_expiration}}" type="text" size="6" /></p>
 <p>Horse name: <input name="horse_name" name="horse_name" size="24" /></p>
 <p>Horoscope effective date: <input name="horoscope_date" type="text" size="10" /></p>
 <p><input name="submit" type="submit" value="Buy now!" />
