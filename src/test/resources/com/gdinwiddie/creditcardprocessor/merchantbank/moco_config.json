@@ -40,7 +40,7 @@
 			"uri": "/pay",
 			"json_paths": 
 			{
-				"$..cardNumber": "4222222222222220"
+				"$..cardNumber": "4444444444444408"
 			}
 		},
 

@@ -5,10 +5,10 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.isEmptyString;
 import static org.junit.Assert.assertThat;
 
-import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
 import com.gdinwiddie.creditcardprocessor.MerchantBank;
 import com.gdinwiddie.creditcardprocessor.PaymentProcessor;
 import com.gdinwiddie.creditcardprocessor.PaymentResult;
+import com.gdinwiddie.creditcardprocessor.TestingCreditCards;
 import com.gdinwiddie.creditcardprocessor.merchantbank.FakeMerchantBank;
 
 import cucumber.api.java.Before;
@@ -18,10 +18,7 @@ import cucumber.api.java.en.When;
 public class CreditCardStepDefinitions {
 	private PaymentResult result;
 	private PaymentProcessor paymentProcessor;
-	public static final CreditCardInfo badCard = new CreditCardInfo("4444444444444448", "123", "09/99");
-	public static final CreditCardInfo invalidCard = new CreditCardInfo("4444444444444408", "123", "09/99");
-	public static final CreditCardInfo goodCard = new CreditCardInfo("4111111111111111", "123", "09/99");
-
+	
 	@Before
 	public void setUp() {
 		paymentProcessor = PaymentProcessorWithFakeMerchantBank.instance();
@@ -29,17 +26,17 @@ public class CreditCardStepDefinitions {
 
 	@When("^a bad card is presented to the Payment Processor$")
 	public void a_bad_card_is_presented_to_the_Payment_Processor() throws Throwable {
-		result = paymentProcessor.acceptPayment(badCard);
+		result = paymentProcessor.acceptPayment(TestingCreditCards.badCard);
 	}
 
 	@When("^an invalid card number is presented to the Payment Processor$")
 	public void an_invalid_card_number_is_presented_to_the_Payment_Processor() throws Throwable {
-		result = paymentProcessor.acceptPayment(invalidCard);
+		result = paymentProcessor.acceptPayment(TestingCreditCards.invalidCard);
 	}
 
 	@When("^a good card is presented to the Payment Processor$")
 	public void a_good_card_is_presented_to_the_Payment_Processor() throws Throwable {
-		result = paymentProcessor.acceptPayment(goodCard);
+		result = paymentProcessor.acceptPayment(TestingCreditCards.goodCard);
 	}
 
 	@Then("^the Payment Processor declines the transaction$")

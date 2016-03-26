@@ -12,12 +12,12 @@ import org.junit.Test;
 
 import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
 import com.gdinwiddie.creditcardprocessor.PaymentResult;
+import com.gdinwiddie.creditcardprocessor.TestingCreditCards;
 import com.github.dreamhead.moco.HttpServer;
 import com.github.dreamhead.moco.Runnable;
 
 public class LocalhostJsonMerchantBankAdapterTest {
-	public final CreditCardInfo invalidCard = new CreditCardInfo("4222222222222220", "123", "12/2099");
-	public final CreditCardInfo validCard = new CreditCardInfo("4111111111111111", "123", "12/2099");
+	public static final CreditCardInfo invalidCard = new CreditCardInfo("4222222222222220", "123", "12/2099");
 	private JsonMerchantBankAdapter bankAdapter;
 	private HttpServer server;
 
@@ -32,7 +32,7 @@ public class LocalhostJsonMerchantBankAdapterTest {
 	public void testInvalidCard() throws Exception {
 		running(server, new Runnable() {
 			public void run() throws IOException {
-				PaymentResult paymentResult = bankAdapter.processPayment(10, invalidCard);
+				PaymentResult paymentResult = bankAdapter.processPayment(10, TestingCreditCards.invalidCard);
 				assertFalse(paymentResult.isSuccessful());
 				assertEquals("invalid card", paymentResult.getReason());
 			}
@@ -43,7 +43,7 @@ public class LocalhostJsonMerchantBankAdapterTest {
 	public void testValidCard() throws Exception {
 		running(server, new Runnable() {
 			public void run() throws IOException {
-				PaymentResult paymentResult = bankAdapter.processPayment(10, validCard);
+				PaymentResult paymentResult = bankAdapter.processPayment(10, TestingCreditCards.goodCard);
 				assertEquals("", paymentResult.getReason());
 				assertTrue(paymentResult.isSuccessful());
 			}

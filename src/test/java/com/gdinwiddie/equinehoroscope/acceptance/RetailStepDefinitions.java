@@ -1,6 +1,7 @@
 package com.gdinwiddie.equinehoroscope.acceptance;
 
 import com.gdinwiddie.creditcardprocessor.CreditCardInfo;
+import com.gdinwiddie.creditcardprocessor.TestingCreditCards;
 import com.gdinwiddie.retail.HorseSelection;
 
 import cucumber.api.java.Before;
@@ -24,7 +25,7 @@ public class RetailStepDefinitions {
 
 	@Given("^a customer provides a valid credit card$")
 	public void a_customer_provides_a_valid_credit_card() throws Throwable {
-		customerCard = CreditCardStepDefinitions.goodCard;
+		customerCard = TestingCreditCards.goodCard;
 	}
 
 	@When("^they request an arbitrary horoscope$")
