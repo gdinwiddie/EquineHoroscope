@@ -124,7 +124,7 @@ Now that we've extracted the API level adapter, `EquineHoroscopeRetailApiAdapter
 
 We can run the web features by defining `EquineHoroscope.testDepth=web` and, to limit the run just to web-related scenarios, specifying the tag `@Web`. Do this by invoking Maven with
 
-    mvn -Dtest=RunCukesTest -Dtags=@Web -DEquineHoroscope.testDepth=web test
+    mvn -Dtest=RunCukesTest -Dcucumber.options="--tags @Web" -DEquineHoroscope.testDepth=web test
 
 or as an Java Application within Eclipse
 
