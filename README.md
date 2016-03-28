@@ -162,4 +162,8 @@ It would be more convenient to start these automatically, but this lets us see t
 You'll notice that `EquineHoroscopeRetailWebAdapter`, though it only has one method, already seems littered with Selenium WebDriver calls. I could wait until the application has more than one page, or until multiple methods need to access this page, but I think I'll refactor to a Page Object Model now.
 
 1. First I extract meaningful methods.
+2. Then I create the PurchasePage and move these methods to it.
+
+The creation of the WebDriver is still a bit awkward, and it's not yet closed when the tests terminate. We'll take care of these details in the future.
+
 
