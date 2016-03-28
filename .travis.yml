@@ -1,6 +1,6 @@
 language: java
 
-install:
+before_script:
   - wget http://idiacomputing.com/pub/EquineHoroscopeJars.zip
   - unzip EquineHoroscopeJars.zip
 
