@@ -142,7 +142,20 @@ Using Spark (http://sparkjava.com/) for the application server, and Handlebars.j
 
 I've hooked the GUI to the API by gathering the query parameters, passing them properly to the API, and putting the result back in scope for displaying on the GUI.
 
-Notice that we now have two servers to start, our simulated merchant bank implemented with Moco, and out Equine Horoscope web application, `EquineHoroscopeRetailWeb.main()`. These must be started before running our web-tier Cucumber scenarios. It would be more convenient to start these automatically, but this lets us see things are working. We can also visit `http://localhost:20002/buy` manually to see how things work.
+Notice that we now have two servers to start, our simulated merchant bank implemented with Moco, and our Equine Horoscope web application, `EquineHoroscopeRetailWeb.main()`. These must be started before running our web-tier Cucumber scenarios. 
+
+We can setup to run these within Eclipse as java applications. For the Moco Merchant Bank server:
+
+![Eclipse Run MocoMerchantBank Configuration part 1](docs/MocoMerchantBank-config1.png "Eclipse Run MocoMerchantBank Configuration part 1")
+
+![Eclipse Run MocoMerchantBank Configuration part 2](docs/MocoMerchantBank-config2.png "Eclipse Run MocoMerchantBank Configuration part 2")
+
+For the Equine Horoscope web application:
+
+![Eclipse Run EquineHoroscopeApplication Configuration](docs/EquineHoroscopeApplication.png "Eclipse Run EquineHoroscopeApplication Configuration")
+
+
+It would be more convenient to start these automatically, but this lets us see things are working. We can also visit `http://localhost:20002/buy` manually to see how things work.
 
 
 
