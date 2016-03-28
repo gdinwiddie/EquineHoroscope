@@ -1,6 +1,7 @@
 language: java
 
-before_script:
+install:
+  - echo "--- Installing Jars ---"
   - wget http://idiacomputing.com/pub/EquineHoroscopeJars.zip
   - unzip EquineHoroscopeJars.zip
 
