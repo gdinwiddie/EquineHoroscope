@@ -157,5 +157,9 @@ For the Equine Horoscope web application:
 
 It would be more convenient to start these automatically, but this lets us see things are working. We can also visit `http://localhost:20002/buy` manually to see how things work.
 
+#### Page Objects
 
+You'll notice that `EquineHoroscopeRetailWebAdapter`, though it only has one method, already seems littered with Selenium WebDriver calls. I could wait until the application has more than one page, or until multiple methods need to access this page, but I think I'll refactor to a Page Object Model now.
+
+1. First I extract meaningful methods.
 
