@@ -1,5 +1,0 @@
-language: java
-install:
-  - wget http://idiacomputing.com/pub/EquineHoroscopeJars.zip
-  - unzip EquineHoroscopeJars.zip
-
