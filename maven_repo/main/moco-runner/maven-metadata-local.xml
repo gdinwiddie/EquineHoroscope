@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>main</groupId>
+  <artifactId>moco-runner</artifactId>
+  <versioning>
+    <release>0.11.0-SNAPSHOT-uber</release>
+    <versions>
+      <version>0.11.0-SNAPSHOT-uber</version>
+    </versions>
+    <lastUpdated>20160329000340</lastUpdated>
+  </versioning>
+</metadata>

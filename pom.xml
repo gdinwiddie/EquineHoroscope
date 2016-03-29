@@ -16,6 +16,13 @@
 		<maven.compiler.version>3.3</maven.compiler.version>
 	</properties>
 
+	<repositories>
+	    <repository>
+	        <id>local-repo</id>
+	        <url>file://${project.basedir}/maven_repo</url>
+	    </repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.derby</groupId>
@@ -79,24 +86,18 @@
 			<groupId>main</groupId>
 			<artifactId>moco-runner</artifactId>
 			<version>0.11.0-SNAPSHOT-uber</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/moco-runner-0.11.0-SNAPSHOT-uber.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>main</groupId>
 			<artifactId>idiaJdbc</artifactId>
 			<version>0+</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/idiaJdbc.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>main</groupId>
 			<artifactId>mumbler</artifactId>
 			<version>0+</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/mumbler.jar</systemPath>
 		</dependency>
 
 		<dependency>
