@@ -1,4 +1,4 @@
-<project name="EquineHoroscope" basedir="." default="runcukes">
+<project name="EquineHoroscope" basedir="." default="all">
     <property name="repo" value="https://repo1.maven.org/maven2"/>
 
     <!-- To figure out compatible combinations of versions, you should examine dependencies in the Maven POM files -->
@@ -91,7 +91,19 @@
         <delete dir="target"/>
     </target>
 
+    <target name="junit" depends="compile-test">
+         <junit printsummary="yes">
+             <classpath refid="classpath"/>
+
+             <batchtest fork="yes">
+                 <fileset dir="src" includes="**/*Test.java"/>
+             </batchtest>
+         </junit>
+     </target>
+
     <target name="clobber" depends="clean">
         <delete dir="${jars}"/>
     </target>
+
+    <target name="all" depends="junit, runcukes"/>
 </project>
