@@ -8,7 +8,7 @@
 <p>Expiration date: <input name="credit_card_expiration" value="{{this.credit_card_expiration}}" type="text" size="6" /></p>
 <p>Horse name: <input name="horse_name" name="horse_name" size="24" /></p>
 <p>Horoscope effective date: <input name="horoscope_date" type="text" size="10" /></p>
-<p><input name="submit" type="submit" value="Buy now!" />
+<p><input name="submitButton" type="submit" value="Buy now!" />
 </form>
 
 {{#if this.horoscope}}
