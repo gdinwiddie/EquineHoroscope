@@ -11,7 +11,13 @@ public class CrystalBall {
 	}
 
 	CrystalBall() {
-		this(MumblerAdapter.instance());
+		this(new HoroscopeProvider() {
+
+			@Override
+			public String horoscopeFor(String horse, String date) {
+				return "Situation cloudy, try again later";
+			}
+		});
 	}
 
 	public static CrystalBall instance() {

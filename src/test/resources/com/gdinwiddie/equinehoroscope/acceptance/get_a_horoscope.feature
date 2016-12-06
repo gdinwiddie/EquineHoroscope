@@ -12,7 +12,7 @@ Scenario: Arbitrary horse and day--temporary
 Scenario: Different horse, same day
 		This should return a different horoscope from before
     When we request a horoscope for "Seabiscuit" for "today"
-    And we request a horoscope for "Seabiscuit" for "tomorrow"
+    And we request a horoscope for "Stewball" for "today"
     Then the horoscopes should be different
 
 @Ignore
