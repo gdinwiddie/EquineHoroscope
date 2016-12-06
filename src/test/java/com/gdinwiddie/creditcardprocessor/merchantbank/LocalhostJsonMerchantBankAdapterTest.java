@@ -1,6 +1,6 @@
 package com.gdinwiddie.creditcardprocessor.merchantbank;
 
-import static com.github.dreamhead.moco.Moco.file;
+import static com.github.dreamhead.moco.Moco.pathResource;
 import static com.github.dreamhead.moco.MocoJsonRunner.jsonHttpServer;
 import static com.github.dreamhead.moco.Runner.running;
 import static org.junit.Assert.*;
@@ -23,7 +23,7 @@ public class LocalhostJsonMerchantBankAdapterTest {
 
 	@Before
 	public void setUp() {
-		server = jsonHttpServer(12345, file("bin/com/gdinwiddie/creditcardprocessor/merchantbank/moco_config.json"));
+		server = jsonHttpServer(12345, pathResource("com/gdinwiddie/creditcardprocessor/merchantbank/moco_config.json"));
 		bankAdapter = new JsonMerchantBankAdapter();
 		bankAdapter.setBankURL("http://localhost:12345");
 	}

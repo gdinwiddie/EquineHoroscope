@@ -134,4 +134,63 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+	 <profile>
+	  <id>moco</id>
+	  <build>
+	   <plugins>
+	    <plugin>
+	     <groupId>org.codehaus.mojo</groupId>
+	     <artifactId>exec-maven-plugin</artifactId>
+	     <version>1.2.1</version>
+			 <executions>
+				 <execution>
+					 <phase>test</phase>
+					 <goals>
+						<goal>java</goal>
+					 </goals>
+				 </execution>
+			 </executions>
+			 <configuration>
+					<mainClass>com.github.dreamhead.moco.bootstrap.Main</mainClass>
+					<classpathScope>test</classpathScope>
+					<arguments>
+						<argument>http</argument>
+						<argument>-p</argument>
+						<argument>12000</argument>
+						<argument>-c</argument>
+						<argument>target/test-classes/com/gdinwiddie/creditcardprocessor/merchantbank/moco_config.json</argument>
+					</arguments>
+				</configuration>
+	    </plugin>
+	   </plugins>
+	  </build>
+	 </profile>
+
+	 <profile>
+	  <id>web</id>
+	  <build>
+	   <plugins>
+	    <plugin>
+	     <groupId>org.codehaus.mojo</groupId>
+	     <artifactId>exec-maven-plugin</artifactId>
+	     <version>1.2.1</version>
+			 <executions>
+				 <execution>
+					 <phase>test</phase>
+					 <goals>
+						<goal>java</goal>
+					 </goals>
+				 </execution>
+			 </executions>
+			 <configuration>
+					<mainClass>com.gdinwiddie.retail.EquineHoroscopeRetailWeb</mainClass>
+					<classpathScope>test</classpathScope>
+				</configuration>
+	    </plugin>
+	   </plugins>
+	  </build>
+	 </profile>
+	</profiles>
 </project>
