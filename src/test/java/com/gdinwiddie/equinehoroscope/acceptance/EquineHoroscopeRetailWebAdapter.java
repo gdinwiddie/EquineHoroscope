@@ -2,6 +2,7 @@ package com.gdinwiddie.equinehoroscope.acceptance;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +14,13 @@ public class EquineHoroscopeRetailWebAdapter implements EquineHoroscopeRetailAda
 	
 	@Override
 	public String purchaseHoroscope(HorseSelection horseSelection, CreditCardInfo customerCard) {
-        WebDriver driver = new FirefoxDriver();
+		WebDriver driver;
+		if("firefox".equals(System.getProperty("EquineHoroscope.browserDriver"))) {
+	        driver = new FirefoxDriver();
+		} else {
+			driver = new ChromeDriver();
+		}
+        
         driver.get("http://localhost:20002/buy");
         driver.findElement(By.name("credit_card_number")).sendKeys(customerCard.getCardNumber());
         driver.findElement(By.name("credit_card_CVV2")).sendKeys(customerCard.getCvv2());
