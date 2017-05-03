@@ -21,14 +21,13 @@ public class EquineHoroscopeRetailWebAdapter implements EquineHoroscopeRetailAda
 	}
 
 	public WebDriver getDriver() {
-		String browserName = System.getProperty("browser.name");
-		System.out.println(browserName);
+		String browserName = System.getProperty("EquineHoroscope.browserDriver");
 
 		WebDriver driver = null;
-		if ("chrome".equalsIgnoreCase(browserName)) {
-			driver = new ChromeDriver();
-		} else {
+		if ("firefox".equalsIgnoreCase(browserName)) {
 			driver = new FirefoxDriver();
+		} else {
+			driver = new ChromeDriver();
 		}
 		return driver;
 	}
