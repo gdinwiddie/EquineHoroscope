@@ -1,5 +1,11 @@
 # EquineHoroscope
 
+This project was created as an example codebase for a talk I first gave at the Agile Alliance Technical Conference 2016 in Raleigh, NC. That talk centered on how the needs of the test automation code change as the codebase and test suite grows. Taking those needs into account affects both the structure and organization of the test automation code. To illustrate this, I needed a codebase more significant than the typical toy program, and one with a history of changes.
+
+The talk (plus some additional material) are collected in a companion book on LeanPub (https://leanpub.com/EvolutionaryAnatomy). The preview of that book contains the instructions for getting started with this code base, plus another example chapter. The rest of this README contains notes I made along the way as I developed.
+
+## The Application
+
 I think I got this project idea from a software development book back in the mid 1980s, but I haven't been able to identify the book. Perhaps it was a dream. I've built parts of this system a couple times, planning to use it for demos and classes. It goes out of date, however. The tools change, libraries change, computing environments change. It's very, very hard to keep a program in compilable condition without frequent attention over the years. So, I'm starting over and putting it in public this time.
 
 ## The "Requirements"
