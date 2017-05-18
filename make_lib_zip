@@ -1,1 +1,2 @@
+mvn dependency:copy-dependencies -DoutputDirectory=lib
 zip -r EquineHoroscopeJars.zip lib
