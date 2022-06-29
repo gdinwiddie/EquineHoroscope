@@ -12,7 +12,7 @@
 		<java.version>8</java.version>
 		<junit.version>4.12</junit.version>
 		<cucumber.version>1.2.4</cucumber.version>
-		<derby.version>10.12.1.1</derby.version>
+		<derby.version>10.14.2.0</derby.version>
 		<maven.compiler.version>3.3</maven.compiler.version>
 	</properties>
 
